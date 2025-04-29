@@ -22,9 +22,9 @@ A Dockerized decoupled weather application with a NextJS frontend and Laravel AP
 │   ├── Dockerfile.api      # API Dockerfile
 │   ├── Dockerfile.webapp   # Web App Dockerfile
 │   ├── docker-compose.yml  # Docker Compose
-│   ├── screenshots         # UI screenshots
-│   ├── scripts/            # Utility scripts 
-│   │   ├── run-docker.sh   # Convenience script for Docker commands
+├── screenshots             # UI screenshots
+├── scripts/                # Utility scripts 
+│   ├── run-docker.sh       # Convenience script for Docker commands
 ├── webapp/                 # NextJS frontend application
 └── README.md               # Project Documentation
 ```
