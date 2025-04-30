@@ -1,17 +1,92 @@
-# Atmos
+# Atmos Weather App
 
 A Dockerized decoupled weather application with a NextJS frontend and Laravel API backend. This application fetches weather data from OpenWeatherMap API.
 
 ## Table of Contents
 
-- [Project Structure](#project-structure)
-- [Setup and Deployment Instructions](#setup-and-deployment-instructions)
+- [Features and Technologies](#features-and-technologies)
+- [Architecture](#architecture)
 - [API Endpoints](#api-endpoints)
 - [User Interface](#user-interface)
-- [Docker Deployment](#docker-deployment)
-- [Features and Technologies](#features-and-technologies)
+- [Project Structure](#project-structure)
+- [Setup and Deployment Instructions](#setup-and-deployment-instructions)
 - [Development](#development)
-- [License](#license)
+- [License](./LICENSE)
+
+## Features and Technologies
+
+### Key Features
+
+- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop devices
+- **Real-time Weather Data**: Fetches current conditions from OpenWeatherMap API
+- **3-Day Forecast**: Shows weather predictions for the next three days
+- **Unit Switching**: Toggle between Celsius and Fahrenheit
+- **Error Handling**: Graceful error management with toast notifications
+- **Loading States**: Improved UX with loading indicators that don't hide content
+- **Docker Integration**: Fully containerized application for easy deployment
+
+### Technology Stack
+
+#### Backend
+- **Laravel version 12.x**: PHP framework for the API
+- **OpenWeatherMap API**: External weather data provider
+- **Docker version 28.1.1**: Containerization for deployment
+
+#### Frontend
+- **Node version 22.13.1**: JavaScript runtime for the frontend
+- **Next.js**: React framework with TypeScript
+- **Tailwind CSS**: Utility-first CSS framework
+- **RippleUI**: Component library for Tailwind
+
+## Architecture
+
+The Atmos Weather App is fully containerized with Docker, making it easy to deploy and run in any environment.
+
+### Container Architecture
+
+- **Laravel API**: Backend service that communicates with OpenWeatherMap API
+- **Nginx Webserver**: Serves the Laravel API on port 8080
+- **Next.js Webapp**: Frontend application served on port 3000
+
+## API Endpoints
+
+- `GET /api/health` - Health check endpoint
+- `GET /api/weather?city={city}` - Get weather data for a specific city
+  - Optional query parameter: `units` (metric, imperial) - Default: metric
+
+## User Interface
+
+The Atmos Weather App provides a clean, intuitive interface for checking weather conditions and forecasts.
+
+### Main Features
+
+- **Search Functionality**: Enter a city name in the search bar and press Enter to get weather data
+- **Unit Toggle**: Switch between Celsius (°C) and Fahrenheit (°F) using the toggle button
+- **Current Weather Display**: View current temperature, weather conditions, and date
+- **3-Day Forecast**: See the weather forecast for the next three days
+- **Detailed Metrics**: Check wind speed, direction, and humidity levels
+
+### Screenshots
+
+#### Desktop View
+
+![Desktop View](screenshots/desktop-view.png)
+*The desktop view shows a two-column layout with current weather on the left and detailed information on the right.*
+
+#### Mobile View
+
+![Mobile View](screenshots/mobile-view.png)
+*On mobile devices, the layout adjusts to a single column for better usability.*
+
+#### Weather Search
+
+![Weather Search](screenshots/search-example.png)
+*Simply type a city name and press Enter to get weather information.*
+
+#### Error Handling
+
+![Error Handling](screenshots/error-handling.png)
+*When a city isn't found, a toast notification appears while maintaining the current weather display.*
 
 ## Project Structure
 
@@ -77,81 +152,6 @@ Alternatively, you can use the full Docker Compose commands:
 ```bash
 docker compose -f docker/docker-compose.yml --env-file docker/.env up -d
 ```
-
-## API Endpoints
-
-- `GET /api/health` - Health check endpoint
-- `GET /api/weather?city={city}` - Get weather data for a specific city
-  - Optional query parameter: `units` (metric, imperial) - Default: metric
-
-## User Interface
-
-The Atmos Weather App provides a clean, intuitive interface for checking weather conditions and forecasts.
-
-### Main Features
-
-- **Search Functionality**: Enter a city name in the search bar and press Enter to get weather data
-- **Unit Toggle**: Switch between Celsius (°C) and Fahrenheit (°F) using the toggle button
-- **Current Weather Display**: View current temperature, weather conditions, and date
-- **3-Day Forecast**: See the weather forecast for the next three days
-- **Detailed Metrics**: Check wind speed, direction, and humidity levels
-
-### Screenshots
-
-#### Desktop View
-
-![Desktop View](screenshots/desktop-view.png)
-*The desktop view shows a two-column layout with current weather on the left and detailed information on the right.*
-
-#### Mobile View
-
-![Mobile View](screenshots/mobile-view.png)
-*On mobile devices, the layout adjusts to a single column for better usability.*
-
-#### Weather Search
-
-![Weather Search](screenshots/search-example.png)
-*Simply type a city name and press Enter to get weather information.*
-
-#### Error Handling
-
-![Error Handling](screenshots/error-handling.png)
-*When a city isn't found, a toast notification appears while maintaining the current weather display.*
-
-## Architecture
-
-The Atmos Weather App is fully containerized with Docker, making it easy to deploy and run in any environment.
-
-### Container Architecture
-
-- **Laravel API**: Backend service that communicates with OpenWeatherMap API
-- **Nginx Webserver**: Serves the Laravel API on port 8080
-- **Next.js Webapp**: Frontend application served on port 3000
-
-## Features and Technologies
-
-### Key Features
-
-- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop devices
-- **Real-time Weather Data**: Fetches current conditions from OpenWeatherMap API
-- **3-Day Forecast**: Shows weather predictions for the next three days
-- **Unit Switching**: Toggle between Celsius and Fahrenheit
-- **Error Handling**: Graceful error management with toast notifications
-- **Loading States**: Improved UX with loading indicators that don't hide content
-- **Docker Integration**: Fully containerized application for easy deployment
-
-### Technology Stack
-
-#### Backend
-- **Laravel version 12.x**: PHP framework for the API
-- **OpenWeatherMap API**: External weather data provider
-- **Docker version 28.1.1**: Containerization for deployment
-
-#### Frontend
-- **Node version 22.13.1**: JavaScript runtime for the frontend
-- **Next.js**: React framework with TypeScript
-- **Tailwind CSS**: Utility-first CSS framework
-- **RippleUI**: Component library for Tailwind
 
 ## Development
 
